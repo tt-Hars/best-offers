@@ -1,0 +1,13 @@
+$body-font-family: 'Open Sans', sans-serif;
+
+@use 'vuetify' with (
+  $body-font-family: $body-font-family
+);
+
+.v-card--variant-elevated {
+  box-shadow: 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15) !important;
+}
+
+body {
+  overflow: hidden;
+}
