@@ -1,13 +1,15 @@
-import express from "express";
+import express, { Router } from "express";
 import cors from "cors";
 import { countries, stations } from "./countries.mjs";
 import flightData from "./flights.mjs";
 
 const app = express();
 
+const router = Router();
+
 app.use(cors());
 
-app.get("/countries", (req, res) => {
+router.get("/countries", (req, res) => {
   res.json({
     countries,
     stations: stations.map((s) => {
@@ -22,7 +24,7 @@ app.get("/countries", (req, res) => {
   });
 });
 
-app.get("/priceOffers", (req, res) => {
+router.get("/priceOffers", (req, res) => {
   const filteredData = flightData.filter(
     (f) => f.offerType === req.query.offer
   );
@@ -41,6 +43,10 @@ app.get("/priceOffers", (req, res) => {
   //   "offers": filteredData.slice(page * 10 - 10, page * 10)
   // });
 });
+
+app.use('/app/', router);
+
+export const handler = serverless(app)
 
 app.listen(8001, () => {
   console.log("Serving on 8001");
