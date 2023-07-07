@@ -14,11 +14,11 @@ describe('Search list panel view', () => {
       global: {
         plugins: [vuetify],
       },
-      props: {
-        flight: {
-          uuid: '1234'
-        }
-      }
+      // props: {
+      //   flight: {
+      //     uuid: '1234'
+      //   }
+      // }
     })
     
     expect(SearchListPanel).toBeTruthy()
