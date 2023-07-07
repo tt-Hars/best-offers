@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:'
+const BASE_URL = `https://${window.location.hostname}:`
 const PORT = '8001'
 export default {
   COUNTRIES: `${BASE_URL}${PORT}/countries`,
